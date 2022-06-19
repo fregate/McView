@@ -39,12 +39,12 @@ struct FileView: View {
             if let imageFile = try? File(path: file.path.absoluteString) {
                 Image(data: try? imageFile.read())
                     .frame(width: scrollDirection == .horizontal ? columnSize : nil, height: scrollDirection == .vertical ? columnSize : nil)
-                Text("\(file.path.lastPathComponent)")
-                    .foregroundColor(.white)
-                    .shadow(color: .gray, radius: 1, x: 1, y: 1)
             } else {
                 Rectangle().frame(width: scrollDirection == .horizontal ? columnSize : nil, height: scrollDirection == .vertical ? columnSize : nil)
             }
+            Text("\(file.path.lastPathComponent)")
+                .foregroundColor(.white)
+                .shadow(color: .gray, radius: 1, x: 1, y: 1)
         }.padding(EdgeInsets(top: padding, leading: padding, bottom: padding, trailing: padding))
     }
 }
