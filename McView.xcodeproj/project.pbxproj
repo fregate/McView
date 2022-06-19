@@ -14,6 +14,14 @@
 		001AA5F1285D968D003FD80F /* McViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA5F0285D968D003FD80F /* McViewTests.swift */; };
 		001AA5FB285D968D003FD80F /* McViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA5FA285D968D003FD80F /* McViewUITests.swift */; };
 		001AA5FD285D968D003FD80F /* McViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA5FC285D968D003FD80F /* McViewUITestsLaunchTests.swift */; };
+		001AA60B285D979D003FD80F /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 001AA60A285D979D003FD80F /* WaterfallGrid */; };
+		001AA60D285D9EBD003FD80F /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA60C285D9EBD003FD80F /* FileView.swift */; };
+		001AA610285DA15F003FD80F /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA60F285DA15F003FD80F /* FileModel.swift */; };
+		001AA612285DA311003FD80F /* FilesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA611285DA311003FD80F /* FilesGrid.swift */; };
+		001AA614285DA390003FD80F /* FilesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA613285DA390003FD80F /* FilesFilter.swift */; };
+		001AA616285DAB07003FD80F /* UrlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA615285DAB07003FD80F /* UrlExtension.swift */; };
+		001AA618285DBC57003FD80F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001AA617285DBC57003FD80F /* SettingsView.swift */; };
+		001AA61B285EE74F003FD80F /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 001AA61A285EE74F003FD80F /* Files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,12 @@
 		001AA5F6285D968D003FD80F /* McViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = McViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		001AA5FA285D968D003FD80F /* McViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McViewUITests.swift; sourceTree = "<group>"; };
 		001AA5FC285D968D003FD80F /* McViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		001AA60C285D9EBD003FD80F /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
+		001AA60F285DA15F003FD80F /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
+		001AA611285DA311003FD80F /* FilesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesGrid.swift; sourceTree = "<group>"; };
+		001AA613285DA390003FD80F /* FilesFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesFilter.swift; sourceTree = "<group>"; };
+		001AA615285DAB07003FD80F /* UrlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlExtension.swift; sourceTree = "<group>"; };
+		001AA617285DBC57003FD80F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001AA61B285EE74F003FD80F /* Files in Frameworks */,
+				001AA60B285D979D003FD80F /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +111,13 @@
 		001AA5DD285D968C003FD80F /* McView */ = {
 			isa = PBXGroup;
 			children = (
+				001AA60E285DA145003FD80F /* Files */,
 				001AA5DE285D968C003FD80F /* McViewApp.swift */,
 				001AA5E0285D968C003FD80F /* ContentView.swift */,
 				001AA5E2285D968D003FD80F /* Assets.xcassets */,
 				001AA5E7285D968D003FD80F /* McView.entitlements */,
 				001AA5E4285D968D003FD80F /* Preview Content */,
+				001AA617285DBC57003FD80F /* SettingsView.swift */,
 			);
 			path = McView;
 			sourceTree = "<group>";
@@ -129,6 +147,18 @@
 			path = McViewUITests;
 			sourceTree = "<group>";
 		};
+		001AA60E285DA145003FD80F /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				001AA60C285D9EBD003FD80F /* FileView.swift */,
+				001AA60F285DA15F003FD80F /* FileModel.swift */,
+				001AA611285DA311003FD80F /* FilesGrid.swift */,
+				001AA613285DA390003FD80F /* FilesFilter.swift */,
+				001AA615285DAB07003FD80F /* UrlExtension.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +175,10 @@
 			dependencies = (
 			);
 			name = McView;
+			packageProductDependencies = (
+				001AA60A285D979D003FD80F /* WaterfallGrid */,
+				001AA61A285EE74F003FD80F /* Files */,
+			);
 			productName = McView;
 			productReference = 001AA5DB285D968C003FD80F /* McView.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +251,10 @@
 				Base,
 			);
 			mainGroup = 001AA5D2285D968C003FD80F;
+			packageReferences = (
+				001AA609285D979D003FD80F /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				001AA619285EE74F003FD80F /* XCRemoteSwiftPackageReference "Files" */,
+			);
 			productRefGroup = 001AA5DC285D968C003FD80F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001AA60D285D9EBD003FD80F /* FileView.swift in Sources */,
+				001AA618285DBC57003FD80F /* SettingsView.swift in Sources */,
 				001AA5E1285D968C003FD80F /* ContentView.swift in Sources */,
+				001AA616285DAB07003FD80F /* UrlExtension.swift in Sources */,
 				001AA5DF285D968C003FD80F /* McViewApp.swift in Sources */,
+				001AA612285DA311003FD80F /* FilesGrid.swift in Sources */,
+				001AA610285DA15F003FD80F /* FileModel.swift in Sources */,
+				001AA614285DA390003FD80F /* FilesFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +612,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		001AA609285D979D003FD80F /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		001AA619285EE74F003FD80F /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Files";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		001AA60A285D979D003FD80F /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 001AA609285D979D003FD80F /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+		001AA61A285EE74F003FD80F /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 001AA619285EE74F003FD80F /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 001AA5D3285D968C003FD80F /* Project object */;
 }
