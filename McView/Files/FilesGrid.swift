@@ -19,8 +19,10 @@ struct FilesGrid: View {
             let directory = URL(string: "/Users/a/Downloads/Wedding/small/")!
             let directoryContent = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil).filter({ path in
                 filter.check(path: path)
+            }).sorted(by: {
+                $0.absoluteString < $1.absoluteString
             })
-            
+
             return AnyView(
                 ScrollView {
                     LazyVGrid(columns: col) {
