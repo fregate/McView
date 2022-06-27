@@ -22,15 +22,15 @@ extension EnvironmentValues {
 struct AsyncImage<Placeholder: View>: View {
     @StateObject private var loader: ImageLoader
     private let placeholder: Placeholder
-    private let image: (NSImage) -> Image
+    private let view: (NSImage) -> AnyView
 
     init(
         url: URL,
         @ViewBuilder placeholder: () -> Placeholder,
-        @ViewBuilder image: @escaping (NSImage) -> Image = Image.init(nsImage:)
+        @ViewBuilder view: @escaping (NSImage) -> AnyView
     ) {
         self.placeholder = placeholder()
-        self.image = image
+        self.view = view
         _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
     }
 
@@ -42,7 +42,7 @@ struct AsyncImage<Placeholder: View>: View {
     private var content: some View {
         Group {
             if loader.image != nil {
-                image(loader.image!)
+                view(loader.image!)
             } else {
                 placeholder
             }

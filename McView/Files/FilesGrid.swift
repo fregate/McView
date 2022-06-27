@@ -12,10 +12,12 @@ import WaterfallGrid
 struct FilesGrid: View {
     var filter = FilesFilter(types: [ImageFilter()])
     var scrollDirection: Axis.Set
-    
+
+    @AppStorage("bgColor") private var bgColor = Color.red
+
     var body: some View {
         do {
-            let col = [GridItem(.flexible()), GridItem(.flexible())]
+            let col = [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)]
             let directory = URL(string: "/Users/a/Downloads/Wedding/small/")!
             let directoryContent = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil).filter({ path in
                 filter.check(path: path)
@@ -25,12 +27,12 @@ struct FilesGrid: View {
 
             return AnyView(
                 ScrollView {
-                    LazyVGrid(columns: col) {
+                    LazyVGrid(columns: col, spacing: 0) {
                         ForEach(directoryContent, id: \.self) {
                             FileView(file: FileModel(path: $0), scrollDirection: .vertical)
                         }
                     }
-                }
+                }.background(bgColor)
             )
         } catch {
             print(error)

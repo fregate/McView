@@ -9,31 +9,45 @@ import Foundation
 import SwiftUI
 import AppKit
 
+extension NSImage{
+    var pixelSize: NSSize?{
+        if let rep = self.representations.first{
+            let size = NSSize(width: rep.pixelsWide, height: rep.pixelsHigh)
+            return size
+        }
+        return nil
+    }
+}
+
 struct FileView: View {
     let file: FileModel
     let scrollDirection: Axis.Set
 
-    @AppStorage("columnSize") private var columnSize = 250.0
     @AppStorage("padding") private var padding = 8.0
-    @AppStorage("bgColor") private var bgColor = Color.gray
+
+    @State private var isHover = false
 
     var body: some View {
-        ZStack {
-            AsyncImage(
-                url: file.path,
-                placeholder: { Text("Loading...") },
-                image: {
-                    Image(nsImage: $0)
+        AsyncImage(
+            url: file.path,
+            placeholder: { Text("Loading...") },
+            view: {
+                let img = $0
+                return AnyView(ZStack {
+                    let imageSize = img.pixelSize!
+                    Image(nsImage: img)
                         .resizable()
-                        .antialiased(true)
-                    }
-            )
-            .aspectRatio(contentMode: .fit)
-//            .frame(width: scrollDirection == .vertical ? columnSize : nil, height: scrollDirection == .horizontal ? 250 : nil)
+                        .interpolation(.high)
 
-            Text("\(file.path.lastPathComponent)")
-                .foregroundColor(.white)
-                .shadow(color: .gray, radius: 1, x: 1, y: 1)
-        }.padding(EdgeInsets(top: padding, leading: padding, bottom: padding, trailing: padding))
+                    if (isHover) {
+                        Text("\(file.path.lastPathComponent), \(String(format: "%0.f", imageSize.width))x\(String(format: "%0.f", imageSize.height)) px")
+                            .foregroundColor(.white)
+                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                    }
+                }.padding(.all, padding))
+            }
+        )
+        .aspectRatio(contentMode: .fit)
+        .onHover(perform: { isHover = $0 })
     }
 }
